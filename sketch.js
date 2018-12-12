@@ -12,21 +12,22 @@ function draw() {
   frameCount%5===0?arcsDump = arcs.slice(0,(frameCount/5)):"";
   background(255,60);
   translate(width/2,height/2);
-  for(let h = 0;h<24;h++){
-    let _size=2;
-    push();
-    rotate((h%24/24)*2*3.14)
-    strokeWeight(0);
-    textSize(16*_size)
-    textAlign(CENTER);
-    fill(0,10);
-    text(h,0,-130*_size);
-    pop();
-  }
-  textAlign(CENTER);
-  textSize(35);
-  fill(100,80);
-  text(arcsDump.length +"\n connections",0,0);
+  // clock background
+        for(let h = 0;h<24;h++){
+          let _size=2;
+          push();
+          rotate((h%24/24)*2*3.14)
+          strokeWeight(0);
+          textSize(16*_size)
+          textAlign(CENTER);
+          fill(0,10);
+          text(h,0,-130*_size);
+          pop();
+        }
+        textAlign(CENTER);
+        textSize(35);
+        fill(100,80);
+        text(arcsDump.length +"\n connections",0,0);
   arcsDump.length>0?Act(arcsDump[arcsDump.length-1].h,2):"";
   arcsDump.forEach(obj=>{
     obj.display(2);
@@ -40,13 +41,13 @@ function Arc(_d){
     push()
     translate(0,0);
     rotate(this.rad);
-    stroke(255,0,0,5);
+    stroke(200,50,50,2);
     strokeWeight(30*_size/1.5);
     line(0,-80*_size,0,-100*_size);
     strokeWeight(0);
     textSize(16*_size)
     textAlign(CENTER);
-    fill(0,3);
+    fill(0,1);
     text(this.h,0,-130*_size);
     pop();
   }
@@ -58,13 +59,15 @@ function Act(_h,_size){
     translate(0,0);
     rotate(rad);
     stroke(100,100,200,125);
-    strokeWeight(30*_size/1.5);
+    strokeWeight(35*_size/1.5);
     line(0,-80*_size,0,-100*_size);
+    strokeWeight(1);
+
+    line(0,0*_size,0,-120*_size);
     strokeWeight(0);
     textSize(16*_size);
     textAlign(CENTER);
     fill(255,0,0,255);
     text(_h,0,-130*_size);
     pop();
-
 }
