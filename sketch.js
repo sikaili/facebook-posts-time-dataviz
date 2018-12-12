@@ -9,30 +9,26 @@ function setup() {
 }
 
 function draw() {
-  background(100);
+  background(150);
 	translate(width/2,height/2);
   arcs.forEach(obj=>{
-    obj.display();
-    push()
-    translate(0,0);
-    rotate(obj.h%12/12*2*3.14);
-    stroke(255,0,0,4);
-    strokeWeight(30);
-    line(0,80,0,100);
-    pop();
+    obj.display(2);
   });
 }
 
-function Arc(d){
-  this.d= d;
-  this.rotate = this.d.h%12/12*2*3.14;
-  this.display = ()=>{
+function Arc(_d){
+  let rad = (_d.h%24/24)*2*3.14;
+  this.display = (_size)=>{
     push()
     translate(0,0);
-    rotate(this.rotate);
-    stroke(0,4);
-    strokeWeight(30);
-    line(0,80,0,100);
+    rotate(rad);
+    stroke(255,0,0,5);
+    strokeWeight(30*_size/1.5);
+    line(0,-80*_size,0,-100*_size);
+    strokeWeight(1);
+    textSize(16*_size)
+    text(_d.h,0,-130*_size);
+
     pop();
   }
 }
