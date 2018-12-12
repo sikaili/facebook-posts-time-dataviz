@@ -19,15 +19,18 @@ let arcs= listTime;
 
 function preload(){
   font = loadFont("assets/AndaleMono.ttf");
+  sound = loadSound("assets/click.m4a");
 }
 
 function setup() {
   textFont(font);
+  masterVolume(0.2);
   createCanvas(windowWidth, windowHeight);
 }
 function draw() {
 // every 5 frames change the array
   frameCount%5===0&&arcsDump.length!==arcs.length?arcsDump = arcs.slice(0,(frameCount/5)):"";
+  frameCount%5===0?(function(){sound.rate(1+Math.random()/20);sound.play()})():"";
   background(0,60);
   translate(width/2,height/2);
 // clock background && connection number
