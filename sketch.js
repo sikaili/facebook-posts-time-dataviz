@@ -9,9 +9,10 @@ function setup() {
 }
 
 function draw() {
+  arcsDump = arcs.slice(0,Math.floor(frameCount/5));
   background(150);
 	translate(width/2,height/2);
-  arcs.forEach(obj=>{
+  arcsDump.forEach(obj=>{
     obj.display(2);
   });
 }
@@ -25,7 +26,7 @@ function Arc(_d){
     stroke(255,0,0,5);
     strokeWeight(30*_size/1.5);
     line(0,-80*_size,0,-100*_size);
-    strokeWeight(1);
+    strokeWeight(0);
     textSize(16*_size)
     text(_d.h,0,-130*_size);
 
