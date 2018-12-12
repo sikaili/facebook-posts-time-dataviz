@@ -13,7 +13,7 @@ function draw() {
   background(255,25);
   translate(width/2,height/2);
   console.log(arcsDump);
-  arcsDump.length>0?Act(arcsDump[arcsDump.length-1].rad,2):"";
+  arcsDump.length>0?Act(arcsDump[arcsDump.length-1].h,2):"";
   arcsDump.forEach(obj=>{
     obj.display(2);
   });
@@ -21,6 +21,7 @@ function draw() {
 
 function Arc(_d){
   this.rad = (_d.h%24/24)*2*3.14;
+  this.h = _d.h;
   this.display = (_size)=>{
     push()
     translate(0,0);
@@ -31,21 +32,25 @@ function Arc(_d){
     strokeWeight(0);
     textSize(16*_size)
     textAlign(CENTER);
-    text(_d.h,0,-130*_size);
+    fill(0,10);
+    text(this.h,0,-130*_size);
     pop();
   }
 }
 
-function Act(rad,_size){
+function Act(_h,_size){
+    let rad = (_h%24/24)*2*3.14;
     push()
     translate(0,0);
     rotate(rad);
-    stroke(100,100,200,100);
+    stroke(100,100,200,125);
     strokeWeight(30*_size/1.5);
     line(0,-80*_size,0,-100*_size);
     strokeWeight(0);
-    textSize(16*_size)
-    // text(_d.h,0,-130*_size);
+    textSize(16*_size);
+    textAlign(CENTER);
+    fill(255,0,0,255);
+    text(_h,0,-130*_size);
     pop();
 
 }
