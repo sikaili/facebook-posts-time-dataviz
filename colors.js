@@ -53,7 +53,6 @@ function scolor(nuit){
 
 }
 const invertColor = (array) =>{
-
    t =[];
    if(array.length<3){
       t[0]=255-array[0];
@@ -65,6 +64,5 @@ const invertColor = (array) =>{
       t[2]=255-array[2];
       t[3]=array[3];
    }
-
  return t;
 }
