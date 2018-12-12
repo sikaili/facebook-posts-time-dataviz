@@ -9,10 +9,18 @@ function setup() {
 }
 
 function draw() {
-	
   background(100);
 	translate(width/2,height/2);
-  arcs.forEach(obj=>obj.display());
+  arcs.forEach(obj=>{
+    obj.display();
+    push()
+    translate(0,0);
+    rotate(obj.h%12/12*2*3.14);
+    stroke(255,0,0,4);
+    strokeWeight(30);
+    line(0,80,0,100);
+    pop();
+  });
 }
 
 function Arc(d){
