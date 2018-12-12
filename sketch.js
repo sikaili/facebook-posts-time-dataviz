@@ -8,11 +8,11 @@ function setup() {
 }
 
 function draw() {
-  // arcsDump = arcs.slice(0,Math.floor(frameCount/5));
+// every 5 frames change the array
   frameCount%5===0?arcsDump = arcs.slice(0,(frameCount/5)):"";
   background(255,60);
   translate(width/2,height/2);
-  // clock background
+// clock background && connection number
         for(let h = 0;h<24;h++){
           let _size=2;
           push();
@@ -28,7 +28,9 @@ function draw() {
         textSize(35);
         fill(100,80);
         text(arcsDump.length +"\n connections",0,0);
+// Act
   arcsDump.length>0?Act(arcsDump[arcsDump.length-1].h,2):"";
+// All
   arcsDump.forEach(obj=>{
     obj.display(2);
   });
