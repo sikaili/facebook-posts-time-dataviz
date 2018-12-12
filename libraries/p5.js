@@ -7492,7 +7492,6 @@ p5.prototype.fill = function() {
   this._renderer.fill.apply(this._renderer, arguments);
   return this;
 };
-
 /**
  * Disables filling geometry. If both noStroke() and noFill() are called,
  * nothing will be drawn to the screen.
