@@ -33,6 +33,7 @@ function draw() {
   frameCount%5===0?(function(){sound.rate(1+Math.random()/20);sound.play()})():"";
   background(0,60);
   translate(width/2,height/2);
+  width<height?scale(1.1):scale(0.8);
 // clock background && connection number
         for(let h = 0;h<24;h++){
           let _size=2;
@@ -49,7 +50,7 @@ function draw() {
         textAlign(CENTER);
         textSize(35);
         fill(100,80);
-        text(arcsDump.length +"\n connections",0,0);
+        text(arcsDump.length +"\n Posts",0,0);
         arcsDump.length>0?text(arcsDump[arcsDump.length-1].d,0,200*2):"";
 // Act
   arcsDump.length!==arcs.length&&arcsDump.length>0?Act(arcsDump[arcsDump.length-1].h,2):"";
