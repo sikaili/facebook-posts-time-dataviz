@@ -38,6 +38,20 @@ function draw() {
   //   sound.play()
   // })() : "";
   background(0, 60);
+  // bar de navigation
+  if (height > width) {
+    push();
+    stroke(0, 0);
+    fill(30, 50, 150, 100);
+    rect(width - 15, mouseY, 15, height - mouseY);
+    pop();
+  } else {
+    push();
+    stroke(0, 0);
+    fill(30, 50, 150, 100);
+    rect(0, height - 15, mouseX, 15);
+    pop();
+  }
   translate(width / 2, height / 2);
   width < height ? scale(1.1) : scale(0.8);
   // clock background && connection number
