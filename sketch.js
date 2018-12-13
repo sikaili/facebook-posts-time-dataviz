@@ -69,9 +69,13 @@ function draw() {
 
   textAlign(CENTER);
   textSize(35);
-  fill(100, 80);
-  text(arcsDump.length + "\n Posts", 0, 0);
+  fill(30, 50, 150, 100);
+  text("Post\nNo." + arcsDump.length, 0, 0);
   arcsDump.length > 0 ? text(arcsDump[arcsDump.length - 1].d, 0, 200 * 2) : "";
+
+  // legend
+  fill(200, 50, 50, 100);
+  text("Facbook Post Time", 0, 200 * 2.5);
   // Act
   arcsDump.length !== arcs.length && arcsDump.length > 0 ? Act(arcsDump[arcsDump.length - 1].h, 2) : "";
   // All
@@ -93,7 +97,7 @@ let Arc = (_h, _m, _size, _t) => {
   push()
   translate(0, 0);
   rotate(rad);
-  _t ? stroke(100, 100, 200, 125) : stroke(200, 50, 50, 10);
+  _t ? stroke(100, 100, 200, 125) : stroke(200, 50, 50, 15);
   strokeWeight(1 * _size / 1.5);
   line(0, -80 * _size, 0, -100 * _size);
   strokeWeight(0);
@@ -103,7 +107,7 @@ let Arc = (_h, _m, _size, _t) => {
   rotate(rad1);
   textSize(16 * _size);
   textAlign(CENTER);
-  _t ? fill(255, 0, 0255) : fill(0, 1);
+  _t ? fill(255, 0, 0, 255) : fill(0, 1);
   text(_h, 0, -130 * _size);
   pop();
 }
@@ -112,15 +116,15 @@ let Act = (_h, _size) => {
   push();
   translate(0, 0);
   rotate(rad);
-  stroke(90, 90, 200, 125);
-  strokeWeight(1 * _size / 1.5);
+  stroke(90, 90, 200, 200);
+  strokeWeight(2 * _size / 1.5);
   line(0, -80 * _size, 0, -100 * _size);
-  strokeWeight(1);
+  strokeWeight(0);
   // line(0, 0 * _size, 0, -120 * _size);
   strokeWeight(0);
   textSize(16 * _size);
   textAlign(CENTER);
-  fill(255, 0, 0, 255);
+  fill(60, 100, 255, 255);
   text(_h, 0, -130 * _size);
   pop();
 }
