@@ -52,7 +52,7 @@ function draw() {
     rect(0, height - 15, mouseX, 15);
     pop();
   }
-  translate(width / 2, height / 2);
+  translate(width / 2, height / 2 - 100);
   width < height ? scale(1.1) : scale(0.8);
   // clock background && connection number
   for (let h = 0; h < 24; h++) {
@@ -97,8 +97,8 @@ let Arc = (_h, _m, _size, _t) => {
   push()
   translate(0, 0);
   rotate(rad);
-  _t ? stroke(100, 100, 200, 125) : stroke(200, 50, 50, 15);
-  strokeWeight(1 * _size / 1.5);
+  _t ? stroke(100, 100, 200, 125) : stroke(200, 50, 50, 30);
+  strokeWeight(2 * _size / 1.5);
   line(0, -80 * _size, 0, -100 * _size);
   strokeWeight(0);
   pop();
@@ -117,8 +117,8 @@ let Act = (_h, _size) => {
   translate(0, 0);
   rotate(rad);
   stroke(90, 90, 200, 200);
-  strokeWeight(2 * _size / 1.5);
-  line(0, -80 * _size, 0, -100 * _size);
+  strokeWeight(3 * _size / 1.5);
+  line(0, -80 * _size, 0, -103 * _size);
   strokeWeight(0);
   // line(0, 0 * _size, 0, -120 * _size);
   strokeWeight(0);
@@ -140,5 +140,5 @@ const Choose = (array) => {
     sound.play();
     ee = e;
   }
-  return array.slice(0, e);
+  return array.slice(e > 100 ? e - 100 : 0, e);
 }
