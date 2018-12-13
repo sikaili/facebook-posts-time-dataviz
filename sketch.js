@@ -97,7 +97,7 @@ let Arc = (_h, _m, _size, _t) => {
   push()
   translate(0, 0);
   rotate(rad);
-  _t ? stroke(100, 100, 200, 125) : stroke(200, 50, 50, 30);
+  _t ? stroke(100, 100, 200, 125) : stroke(200, 50, 50, 25 - _m / 4);
   strokeWeight(2 * _size / 1.5);
   line(0, -80 * _size, 0, -100 * _size);
   strokeWeight(0);
