@@ -40,7 +40,7 @@ function draw() {
   background(0, 60);
   // bar de navigation
   if (height > width) {
-    push();
+    push();``
     stroke(0, 0);
     fill(30, 50, 150, 100);
     rect(width - 15, mouseY, 15, height - mouseY);
